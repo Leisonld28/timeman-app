@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeman_app/utils.dart';
 
 class TimerCard extends StatelessWidget {
   const TimerCard({super.key});
@@ -27,7 +28,7 @@ class TimerCard extends StatelessWidget {
                     ]),
                 child: Center(
                   child: Text("12",
-                      style: textStyle(70, Colors.redAccent, FontWeight)),
+                      style: textStyle(70, Colors.redAccent, FontWeight.bold)),
                 )),
             const SizedBox(width: 10),
             Text(
@@ -50,7 +51,7 @@ class TimerCard extends StatelessWidget {
                     ]),
                 child: Center(
                   child: Text("00",
-                      style: textStyle(70, Colors.redAccent, FontWeight)),
+                      style: textStyle(70, Colors.redAccent, FontWeight.bold)),
                 )),
           ],
         )

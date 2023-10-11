@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:timeman_app/utils.dart';
+import 'package:timeman_app/widgets/timerservice.dart';
 
 class TimerCard extends StatelessWidget {
   const TimerCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TimerService>(context);
+    final seconds = provider.currentDuration ~/ 60;
     return Column(
       children: [
-        Text("FOCUS", style: textStyle(35, Colors.white, FontWeight.w700)),
+        Text("CONCENTRACION",
+            style: textStyle(35, Colors.white, FontWeight.w700)),
         const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -27,13 +32,13 @@ class TimerCard extends StatelessWidget {
                           offset: const Offset(0, 2))
                     ]),
                 child: Center(
-                  child: Text("25",
+                  child: Text((provider.currentDuration ~/ 60).toString(),
                       style: textStyle(70, Colors.redAccent, FontWeight.bold)),
                 )),
             const SizedBox(width: 10),
             Text(
               ":",
-              style: textStyle(60, Colors.red[200], FontWeight.bold),
+              style: textStyle(60, Colors.white, FontWeight.bold),
             ),
             const SizedBox(width: 10),
             Container(
@@ -50,7 +55,10 @@ class TimerCard extends StatelessWidget {
                           offset: const Offset(0, 2))
                     ]),
                 child: Center(
-                  child: Text("00",
+                  child: Text(
+                      seconds == 0
+                          ? "${seconds.round()}0"
+                          : seconds.round().toString(),
                       style: textStyle(70, Colors.redAccent, FontWeight.bold)),
                 )),
           ],

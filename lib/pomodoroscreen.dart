@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeman_app/widgets/progresswidget.dart';
 import 'package:timeman_app/widgets/timecard.dart';
 import 'package:timeman_app/widgets/timecontroller.dart';
 import 'package:timeman_app/widgets/timeoptions.dart';
@@ -13,7 +14,7 @@ class PomodoroScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.redAccent,
         title: Text(
-          "POMOTIMER",
+          "TIME MAN",
           style: textStyle(25, Colors.white, FontWeight.w700),
         ),
         actions: [
@@ -39,7 +40,11 @@ class PomodoroScreen extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              TimeController()
+              TimeController(),
+              SizedBox(
+                height: 40,
+              ),
+              ProgressWidget()
             ],
           ),
         ),

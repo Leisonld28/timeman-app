@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:timeman_app/timecard.dart';
+import 'package:timeman_app/widgets/timecard.dart';
+import 'package:timeman_app/widgets/timecontroller.dart';
 import 'package:timeman_app/widgets/timeoptions.dart';
 import 'utils.dart';
 
@@ -29,12 +30,16 @@ class PomodoroScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           alignment: Alignment.center,
-          child: const Column(
+          child: Column(
             children: [
               SizedBox(height: 15),
               TimerCard(),
               SizedBox(height: 40),
               TimeOptions(),
+              SizedBox(
+                height: 40,
+              ),
+              TimeController()
             ],
           ),
         ),

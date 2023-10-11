@@ -27,7 +27,7 @@ class TimerCard extends StatelessWidget {
                           offset: const Offset(0, 2))
                     ]),
                 child: Center(
-                  child: Text("12",
+                  child: Text("25",
                       style: textStyle(70, Colors.redAccent, FontWeight.bold)),
                 )),
             const SizedBox(width: 10),

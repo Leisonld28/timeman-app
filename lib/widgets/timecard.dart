@@ -9,7 +9,7 @@ class TimerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TimerService>(context);
-    final seconds = provider.currentDuration ~/ 60;
+    final seconds = provider.currentDuration % 60;
     return Column(
       children: [
         Text("CONCENTRACION",
@@ -59,6 +59,7 @@ class TimerCard extends StatelessWidget {
                       seconds == 0
                           ? "${seconds.round()}0"
                           : seconds.round().toString(),
+                      //(provider.currentDuration % 60).round().toString(),
                       style: textStyle(70, Colors.redAccent, FontWeight.bold)),
                 )),
           ],

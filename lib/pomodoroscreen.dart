@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:timeman_app/widgets/progresswidget.dart';
 import 'package:timeman_app/widgets/timecard.dart';
 import 'package:timeman_app/widgets/timecontroller.dart';
 import 'package:timeman_app/widgets/timeoptions.dart';
+import 'package:timeman_app/widgets/timerservice.dart';
 import 'utils.dart';
 
 class PomodoroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TimerService>(context);
     return Scaffold(
-      backgroundColor: Colors.redAccent,
+      backgroundColor: renderColor(provider.currentState),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: renderColor(provider.currentState),
         title: Text(
           "TIME MAN",
           style: textStyle(25, Colors.white, FontWeight.w700),
@@ -24,7 +27,8 @@ class PomodoroScreen extends StatelessWidget {
               color: Colors.white,
             ),
             iconSize: 40,
-            onPressed: () {},
+            onPressed: () =>
+                Provider.of<TimerService>(context, listen: false).reset(),
           )
         ],
       ),
@@ -38,11 +42,11 @@ class PomodoroScreen extends StatelessWidget {
               SizedBox(height: 40),
               TimeOptions(),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               TimeController(),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               ProgressWidget()
             ],

@@ -12,7 +12,7 @@ class TimerCard extends StatelessWidget {
     final seconds = provider.currentDuration % 60;
     return Column(
       children: [
-        Text("CONCENTRACION",
+        Text(provider.currentState,
             style: textStyle(35, Colors.white, FontWeight.w700)),
         const SizedBox(height: 20),
         Row(
@@ -33,7 +33,8 @@ class TimerCard extends StatelessWidget {
                     ]),
                 child: Center(
                   child: Text((provider.currentDuration ~/ 60).toString(),
-                      style: textStyle(70, Colors.redAccent, FontWeight.bold)),
+                      style: textStyle(70, renderColor(provider.currentState),
+                          FontWeight.bold)),
                 )),
             const SizedBox(width: 10),
             Text(
@@ -60,7 +61,8 @@ class TimerCard extends StatelessWidget {
                           ? "${seconds.round()}0"
                           : seconds.round().toString(),
                       //(provider.currentDuration % 60).round().toString(),
-                      style: textStyle(70, Colors.redAccent, FontWeight.bold)),
+                      style: textStyle(70, renderColor(provider.currentState),
+                          FontWeight.bold)),
                 )),
           ],
         )

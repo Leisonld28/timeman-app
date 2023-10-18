@@ -4,6 +4,7 @@ import 'package:timeman_app/widgets/progresswidget.dart';
 import 'package:timeman_app/widgets/timecard.dart';
 import 'package:timeman_app/widgets/timecontroller.dart';
 import 'package:timeman_app/widgets/timeoptions.dart';
+import 'package:timeman_app/widgets/timeregister/registercontroller.dart';
 import 'package:timeman_app/widgets/timerservice.dart';
 import 'utils.dart';
 
@@ -48,7 +49,11 @@ class PomodoroScreen extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              ProgressWidget()
+              ProgressWidget(),
+              SizedBox(
+                height: 20,
+              ),
+              TimeRegisters(),
             ],
           ),
         ),
